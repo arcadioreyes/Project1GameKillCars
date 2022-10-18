@@ -4,6 +4,12 @@ const c = canvas.getContext("2d");
 canvas.width = 1024;
 canvas.height = 576;
 
+let background = new Image();
+background.src = "Imagesbicycle/background1.png";
+
+let playerImage = new Image();
+playerImage.src = "Imagesbicycle/alleyCat.png";
+
 const gravity = 1;
 
 class Player {
@@ -17,13 +23,19 @@ class Player {
       y: 1,
     };
 
-    this.width = 30;
-    this.height = 30;
+    this.width = 70;
+    this.height = 90;
   }
 
   draw() {
     c.fillStyle = `red`;
-    c.fillRect(this.position.x, this.position.y, this.width, this.height);
+    c.drawImage(
+      playerImage,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
   }
 
   update() {
@@ -33,7 +45,7 @@ class Player {
 
     if (this.position.y + this.height + this.velocity.y <= canvas.height)
       this.velocity.y += gravity;
-    else this.velocity.y = 0;
+    // else this.velocity.y = 0;
   }
 }
 
@@ -62,8 +74,10 @@ console.log(image);
 
 const player = new Player();
 const platforms = [
-  new Platform({ x: -3, y: 470, image: image }),
+  new Platform({ x: -10, y: 470, image: image }),
   new Platform({ x: image.width - 3, y: 470, image: image }),
+  new Platform({ x: image.width * 2 + 100, y: 470, image: image }),
+  new Platform({ x: image.width * 3 + 300, y: 470, image: image }),
 ];
 
 const keys = {
@@ -81,6 +95,8 @@ function animate() {
   requestAnimationFrame(animate);
   c.fillStyle = "white";
   c.fillRect(0, 0, canvas.width, canvas.height);
+  // draw background image
+  c.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   platforms.forEach((platform) => {
     platform.draw();
@@ -121,10 +137,15 @@ function animate() {
     }
   });
 
-  // you win message
+  // WIN CONDITION & you win message
   if (scrollOffset > 2000) {
     console.log("You win!");
   }
+}
+
+// LOSE CONDITION IT DOES NOT WORK 1'27
+if (player.position.y > canvas.height) {
+  console.log("You lose!");
 }
 
 animate();
@@ -148,7 +169,7 @@ window.addEventListener("keydown", ({ keyCode }) => {
 
     case 38:
       console.log("up");
-      player.velocity.y -= 20;
+      player.velocity.y -= 5;
       break;
   }
 });
