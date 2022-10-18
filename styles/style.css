@@ -1,0 +1,19 @@
+/* Reseting the CSS*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Where the style of Kill cars Starts*/
+body {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+canvas {
+  border: 5px solid purple;
+}
