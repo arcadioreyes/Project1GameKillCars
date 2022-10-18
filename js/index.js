@@ -64,7 +64,6 @@ const player = new Player();
 const platforms = [
   new Platform({ x: -3, y: 470, image: image }),
   new Platform({ x: image.width - 3, y: 470, image: image }),
-  new Platform({ x: image.width * 2 - 3, y: 470, image: image }),
 ];
 
 const keys = {
