@@ -1,3 +1,17 @@
+// window.onload = () => {
+//   document.getElementById("start-button").onclick = () => {
+//     startGame();
+//   };
+
+//   function startGame() {
+//     isStarted = !isStarted;
+//   }
+// };
+
+// let isStarted = false;
+
+//lines 1 to 11 added to test start button not working :(
+
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
@@ -160,6 +174,7 @@ function animate() {
   requestAnimationFrame(animate);
   c.fillStyle = "white";
   c.fillRect(0, 0, canvas.width, canvas.height);
+
   // draw background image
   c.drawImage(background, 0, 0, canvas.width, canvas.height);
 
