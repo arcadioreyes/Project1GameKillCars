@@ -45,9 +45,9 @@ class Player {
     this.carSpawnTime = 2;
     this.cars = cars;
     this.lives = 3;
-    // this.isHit = 0;
+    this.isHit = [];
 
-    // displaying cars every 4 seconds
+    // displaying cars every 2 seconds
     setInterval(() => {
       this.cars.push(
         new Car({ x: canvas.width, y: 540 - 75, image: carImage })
@@ -167,11 +167,14 @@ const keys = {
 let scrollOffset = 0;
 
 function animate() {
+  const animationId = requestAnimationFrame(animate);
   if (player.lives <= 0) {
     console.log("game over");
+    alert("Game Over");
+    cancelAnimationFrame(animationId); // elementbyid to block in order to display GAME OVER
   }
 
-  requestAnimationFrame(animate);
+  //requestAnimationFrame(animate);
   c.fillStyle = "white";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -234,18 +237,19 @@ function animate() {
   });
 
   // car collision detection
-  cars.forEach((car) => {
+  cars.forEach((car, index) => {
     if (
       player.position.y + player.height >= car.position.y &&
       player.position.y <= car.position.y + car.height &&
       player.position.x + player.width >= car.position.x &&
-      player.position.x <= car.position.x + car.width
+      player.position.x <= car.position.x + car.width &&
+      !player.isHit.includes(index)
     ) {
       console.log("hit");
-      // player.isHit += 1;
+      player.isHit.push(index);
 
-      // if (player.isHit === 1) {
-      //   player.lives -= 1;
+      //if (player.isHit === 1) {
+      player.lives -= 1;
 
       // }
     } //else if (player.position.x > car.position.x && car.canHit) {
