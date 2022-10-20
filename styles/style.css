@@ -9,11 +9,29 @@ body {
   margin: 0;
   background-color: black;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-
+.logo-img {
+  width: 450px;
+}
 canvas {
   border: 5px solid purple;
+}
+
+button {
+  font-size: 30px;
+  background-color: purple;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin: 30px;
+}
+
+.arrowsImg {
+  width: 250px;
 }
