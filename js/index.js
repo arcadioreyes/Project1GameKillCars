@@ -40,8 +40,8 @@ class Player {
       y: 1,
     };
 
-    this.width = 70;
-    this.height = 90;
+    this.width = 80;
+    this.height = 100;
     this.carSpawnTime = 2;
     this.cars = cars;
     this.lives = 3;
@@ -149,7 +149,6 @@ const platforms = [
   new Platform({ x: -10, y: 370, image: image }),
   new Platform({ x: image.width * 1.1, y: 340, image: image }),
   new Platform({ x: image.width * 2.3, y: 210, image: image }),
-  new Platform({ x: image.width * 2.8, y: 370, image: image }), //
   new Platform({ x: image.width * 4, y: 310, image: image }),
   new Platform({ x: image.width * 4.6, y: 200, image: image }),
   new Platform({ x: image.width * 6, y: 370, image: image }),
@@ -170,7 +169,7 @@ function animate() {
   const animationId = requestAnimationFrame(animate);
   if (player.lives <= 0) {
     console.log("game over");
-    alert("Game Over");
+    alert("Game Over! You were hit 3 times!");
     cancelAnimationFrame(animationId); // elementbyid to block in order to display GAME OVER
   }
 
@@ -250,11 +249,7 @@ function animate() {
 
       //if (player.isHit === 1) {
       player.lives -= 1;
-
-      // }
-    } //else if (player.position.x > car.position.x && car.canHit) {
-    //   player.isHit = 0;
-    // }
+    }
   });
 
   // WIN CONDITION & you win message
