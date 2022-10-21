@@ -15,9 +15,11 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
+// My canvas Size
 canvas.width = 1024;
 canvas.height = 576;
 
+//Images
 let background = new Image();
 background.src = "Imagesbicycle/background1.png";
 
@@ -47,7 +49,7 @@ class Player {
     this.lives = 3;
     this.isHit = [];
 
-    // displaying cars every 2 seconds
+    // displaying cars every 2 seconds => car.SpawnTime
     setInterval(() => {
       this.cars.push(
         new Car({ x: canvas.width, y: 540 - 75, image: carImage })
@@ -166,11 +168,14 @@ const keys = {
 let scrollOffset = 0;
 
 function animate() {
+  //GAME OVER POP UP
   const animationId = requestAnimationFrame(animate);
   if (player.lives <= 0) {
     console.log("game over");
+    // In order to make this pop up more stylish an elementbyid
+    // to block can be used in order to display GAME OVER
     alert("Game Over! You were hit 3 times!");
-    cancelAnimationFrame(animationId); // elementbyid to block in order to display GAME OVER
+    cancelAnimationFrame(animationId);
   }
 
   //requestAnimationFrame(animate);
@@ -201,7 +206,7 @@ function animate() {
   } else {
     player.velocity.x = 0;
 
-    // movement platform
+    // movement platform inside animate() function
     if (keys.right.pressed) {
       scrollOffset += 5;
       platforms.forEach((platform) => {
@@ -222,7 +227,7 @@ function animate() {
     }
   }
 
-  // platform collision detection
+  // platform collision detection inside animate() function
   platforms.forEach((platform) => {
     if (
       player.position.y + player.height <= platform.position.y &&
@@ -235,7 +240,7 @@ function animate() {
     }
   });
 
-  // car collision detection
+  // car collision detection inside animate() function
   cars.forEach((car, index) => {
     if (
       player.position.y + player.height >= car.position.y &&
@@ -247,12 +252,11 @@ function animate() {
       console.log("hit");
       player.isHit.push(index);
 
-      //if (player.isHit === 1) {
       player.lives -= 1;
     }
   });
 
-  // WIN CONDITION & you win message
+  // WIN CONDITION & you win message inside animate() function
   if (scrollOffset > image.width * 6) {
     console.log("You win!");
   }
