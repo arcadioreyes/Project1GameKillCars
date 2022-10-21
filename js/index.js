@@ -168,10 +168,14 @@ const keys = {
 let scrollOffset = 0;
 
 function animate() {
-  //GAME OVER POP UP
+  //YOU WIN POP UP
   const animationId = requestAnimationFrame(animate);
-  if (player.lives <= 0) {
-    console.log("game over");
+  if (scrollOffset > image.width * 6) {
+    alert("You WIN!");
+    cancelAnimationFrame(animationId);
+
+    //GAME OVER POP UP
+  } else if (player.lives <= 0) {
     // In order to make this pop up more stylish an elementbyid
     // to block can be used in order to display GAME OVER
     alert("Game Over! You were hit 3 times!");
