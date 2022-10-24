@@ -3,23 +3,22 @@
 Welccome to Kill cars!
 
 The Plot:
-AlleyCat and CumbiaJag live in a surrealistic world full of nature and beautiful skies. The cars want to take over their world. They want to take over the bicycles and pollute their world!
+AlleyCat lives in a surrealistic world full of nature and beautiful skies. The cars want to take over their world. They want to take over the bicycles and pollute his world!
 
-AlleyCat and CumbiaJag are two bike messengers who want to save the world. They choose the bicycle as their daily means of transportation.
+AlleyCat is a bike messenger who wants to save the world. He choose the bicycle as his daily means of transportation.
 
-Help AlleyCat and CumbiaJag to get rid of the cars. The cars are polluting the Earth with noise, smoke and traffic. More bikes, less cars! More bike, better cities!
+Help AlleyCat to get rid of the cars. The cars are polluting the Earth with noise, smoke and traffic. More bikes, less cars! More bike, better cities!
 
-The points
-Every time AlleyCat and CumbiaJagg jump a car they win points.
-If they crash a car, they lose a life.
-From the beginning they have 3 lives.
+How to play?
+Use the LEFT and RIGHT arrows to move back and forward
+Use the UP arrow to jump
+You have 3 lives from the beginning they have 3 lives.
+If a hits you, you lose a life.
 If they lose their lives … Game Over
-A score should be displayed
-Random cars
-Increase speed after 15 seconds,
+If you arrive at the end of the landscape, you win.
 
-The BONUS
-
-- player will have the option to choose a character
-- After reaching some quantity of points, they can pass to the next level.
-- Next level will be more difficult
+// Dev notations
+This game is a simple game based on "Mario Bros".
+The game was created with 3 languages: html, css and js.
+The game is deployedd at:
+https://arcadioreyes.github.io/project1GameKillCars/
